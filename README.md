@@ -1,66 +1,65 @@
 # Vendor Product Binding
 
-**Version:** 19.0.1.0.0  
-**Category:** Purchase  
-**License:** LGPL-3  
+![Version](https://img.shields.io/badge/version-19.0.1.0.0-blue)
+![Category](https://img.shields.io/badge/category-Purchase-green)
+![License](https://img.shields.io/badge/license-LGPL-3-orange)
+
+| | |
+|---|---|
+| **Name** | Vendor Product Binding |
+| **Version** | 19.0.1.0.0 |
+| **Category** | Purchase |
+| **License** | LGPL-3 |
+| **Application** | No (Addon) |
 
 ## Description
 
 Bind products to vendors on Purchase Orders
 
-## Features
+## Functionality
 
-- Odoo 19.0 compatible
-- Addon module
-- Bind products to vendors on Purchase Orders
+### Models & Fields
+
+#### Extends `purchase.order.line, purchase.order`
+
+**File:** `models/purchase_order.py`
+
+**Inherits:** `purchase.order.line`, `purchase.order`
+
+**Key Methods:**
+
+- `_onchange_product_set_vendor()` — Onchange handler
+- `_onchange_partner_id_filter_products()` — Onchange handler
 
 ## Dependencies
 
-This module depends on the following Odoo modules:
+| Module | Type |
+|--------|------|
+| `purchase` | Odoo Core |
 
-- `purchase`
-
-## Installation
-
-1. Clone this repository into your Odoo addons directory:
-   ```bash
-   git clone https://github.com/tejas7287/vendor_product_binding.git
-   ```
-
-2. Add the module path to your Odoo configuration file (`odoo.conf`):
-   ```
-   addons_path = /path/to/odoo/addons,/path/to/vendor_product_binding
-   ```
-
-3. Restart the Odoo server:
-   ```bash
-   sudo systemctl restart odoo
-   ```
-
-4. Go to **Apps** → **Update Apps List** → Search for **"Vendor Product Binding"** → Click **Install**
-
-## Module Structure
+## File Structure
 
 ```
 vendor_product_binding/
+├── LICENSE
+├── README.md
 ├── __init__.py
 ├── __manifest__.py
 ├── models/
-├── views/
+│   ├── __init__.py
+│   └── purchase_order.py
+└── views/
+    └── purchase_order_view.xml
 ```
 
-## Configuration
+## Installation
 
-After installation, configure the module through Odoo's Settings menu or the module's specific configuration options.
+This module is part of the **[odoo-purchase-vendor-suite](https://github.com/tejas7287/odoo-purchase-vendor-suite)** suite.
+
+1. Place this module in your Odoo addons directory
+2. Update the apps list: **Settings** → **Apps** → **Update Apps List**
+3. Search for **"Vendor Product Binding"** and click **Install**
 
 ## License
 
-This project is licensed under the LGPL-3 License.
-
-## Contributing
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
+LGPL-3
